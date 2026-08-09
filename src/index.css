@@ -1,0 +1,109 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+/* Layout หลักที่ครอบทุกหน้าเอาไว้ */
+#main-layout {
+    width: 100vw;
+    min-height: 100vh;
+    
+    /* 🛠️ แก้ไข 2 บรรทัดนี้ */
+    min-height: 100vh; /* บังคับให้สูงอย่างน้อยเต็มหน้าจอเสมอ */
+    box-sizing: border-box; /* ป้องกันไม่ให้ขอบจอล้นจนเกิด Scrollbar แนวนอน */
+    
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas:
+    "n"
+    "c"
+    "f"
+}
+
+#findpet {
+    width: 100vw;
+    
+    /* 🛠️ แก้ไข 2 บรรทัดนี้ */
+    min-height: 100vh; /* บังคับให้สูงอย่างน้อยเต็มหน้าจอเสมอ */
+    box-sizing: border-box; /* ป้องกันไม่ให้ขอบจอล้นจนเกิด Scrollbar แนวนอน */
+    
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas:
+    "n"
+    "c"
+    "f"}
+
+#foundpet {
+    width: 100vw;
+    
+    /* 🛠️ แก้ไข 2 บรรทัดนี้ */
+    min-height: 100vh; /* บังคับให้สูงอย่างน้อยเต็มหน้าจอเสมอ */
+    box-sizing: border-box; /* ป้องกันไม่ให้ขอบจอล้นจนเกิด Scrollbar แนวนอน */
+    
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas:
+    "n" 
+    "c"
+    "f"
+}
+
+#adopt {
+    width: 100vw;
+    
+    /* 🛠️ แก้ไข 2 บรรทัดนี้ */
+    min-height: 100vh; /* บังคับให้สูงอย่างน้อยเต็มหน้าจอเสมอ */
+    box-sizing: border-box; /* ป้องกันไม่ให้ขอบจอล้นจนเกิด Scrollbar แนวนอน */
+    
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas:
+    "n" 
+    "c"
+    "f"
+}
+
+
+#Profile {
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box; 
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas:
+    "n" 
+    "c"
+    "f"
+}
+
+#PostDetail {
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box; 
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas:
+    "n" 
+    "c"
+    "f"
+}
+
+#Nav {
+    grid-area: n;
+}
+
+#Content {
+    grid-area: c;
+}
+
+#Footer {
+    grid-area: f;
+    
+}
+
+/* สไตล์สำหรับหน้าย่อย (เช่น หน้าตามหาหมาแมว) */

@@ -1,0 +1,67 @@
+/* คุมโครงสร้างหลักของ Footer (จะวิ่งตามความสูง 40px หรือตามเนื้อหา) */
+#Footer-container {
+    width: 100%;
+    height: 60px;
+    background-color: #042546;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    margin-top: auto;
+}
+/* จัดเลย์เอาต์เนื้อหาภายใน */
+.footer-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* แยกข้อความไว้ฝั่งซ้าย ลิงก์ไว้ฝั่งขวา */
+}
+
+/* ส่วนของข้อความลิขสิทธิ์ */
+.footer-text {
+    margin: 0;
+    color: #cbd5e1; /* สีเทาอ่อน สบายตา ไม่สว่างแทงตาเกินไป */
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.brand-highlight {
+    color: #60a5fa; /* ไฮไลต์ชื่อแบรนด์ด้วยสีฟ้าอ่อน */
+    font-weight: 600;
+}
+
+/* ส่วนของลิงก์ฝั่งขวา */
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+/* เอฟเฟกต์เมื่อเอาเมาส์ชี้ลิงก์ */
+.footer-link:hover {
+    color: #ffffff; /* เปลี่ยนเป็นสีขาวบริสุทธิ์เมื่อ Hover */
+}
+
+/* 📱 รองรับการแสดงผลบนมือถือ (Responsive) */
+@media (max-width: 640px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 24px;
+        text-align: center;
+    }
+    
+    .footer-links {
+        gap: 12px;
+    }
+}

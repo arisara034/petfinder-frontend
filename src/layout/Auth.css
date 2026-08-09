@@ -1,0 +1,173 @@
+/* Auth.css */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
+/* 1. คลุมทั้งหน้าจอ ดันกล่อง Card ให้อยู่กลางจอพอดี */
+.auth-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Kanit', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 2. กล่อง Card หลัก */
+.auth-container {
+  width: 100%;
+  max-width: 400px; /* จำกัดขนาดความกว้างของการ์ด */
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+  box-sizing: border-box;
+  
+  /* 🟢 จุดสำคัญ: บังคับให้ไส้ในทั้งหมดจัดเรียงอยู่ตรงกลาง Card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* หัวข้อให้อยู่ตรงกลาง */
+.auth-container h2 {
+  text-align: center;
+  color: #1e293b;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.auth-subtitle .icon { color: #f97316; }
+
+/* ส่วนของฟอร์ม */
+.auth-container form {
+  width: 100%; /* ให้ฟอร์มขยายเต็มความกว้างด้านใน */
+}
+
+/* จัดระเบียบช่องกรอกข้อมูล */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-align: left; /* ฉลากชื่อช่องชิดซ้ายปกติเพื่อให้อ่านง่าย */
+}
+
+.form-group input {
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  outline: none;
+  background-color: #f8fafc;
+  color: #334155;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* เอฟเฟกต์ตอนกดพิมพ์ */
+.form-group input:focus {
+  border-color: #ff7675; /* สีส้ม/ชมพู PetFinder */
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 118, 117, 0.15);
+}
+
+/* ปุ่มกดให้อยู่ตรงกลางและสมดุล */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #ff7675;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(255, 118, 117, 0.2);
+}
+
+.auth-btn:hover {
+  background-color: #e84118;
+}
+
+/* ข้อความสลับหน้าด้านล่างสุด จัดกึ่งกลาง */
+.switch-auth-text {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.switch-auth-btn {
+  background: none;
+  border: none;
+  color: #ff7675;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 6px;
+  text-decoration: underline;
+}
+
+/* จัดตําแหน่งลิงก์ลืมรหัสผ่าน */
+.forgot-password-link-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+  margin-bottom: 20px;
+}
+
+.forgot-link-btn {
+  background: none;
+  border: none;
+  color: #3182ce;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.forgot-link-btn:hover {
+  color: #2b6cb0;
+  text-decoration: underline;
+}
+
+.forgot-modal-box {
+  max-width: 420px !important;
+}
+
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center; z-index: 1200;
+}
+.custom-alert-box { background: white; padding: 20px; border-radius: 12px; text-align: center; width: 300px; }
+.custom-alert-box.success { border-top: 5px solid #48bb78; }
+.custom-alert-box.error { border-top: 5px solid #f56565; }
+.alert-btn-close {
+  background: #3182ce; color: white; border: none; padding: 8px 20px;
+  border-radius: 6px; margin-top: 15px; cursor: pointer;
+}

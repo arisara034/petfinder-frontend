@@ -1,0 +1,572 @@
+/* PostDetail.css - Modern Clean Version */
+
+.post-detail-page {
+    grid-area: c;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f1f5f9;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.detail-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 820px;
+    padding: 36px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* ส่วนหัวข้อและป้ายสถานะ */
+.detail-content h1 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.detail-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 8px 0 16px 0;
+}
+
+.favorite-btn {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    color: #94a3b8;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.favorite-btn:hover:not(:disabled) {
+    border-color: #fecdd3;
+    color: #fb7185;
+    transform: translateY(-1px);
+}
+
+.favorite-btn.active {
+    background: #fff1f2;
+    border-color: #fda4af;
+    color: #e11d48;
+}
+
+.favorite-btn.active .icon {
+    fill: currentColor;
+}
+
+.favorite-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ป้ายประเภทสัตว์ */
+.type-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #f1f5f9;
+    color: #475569;
+}
+.type-badge.found { background: #dcfce7; color: #166534; }
+.type-badge.adopt { background: #e0f2fe; color: #0369a1; }
+.type-badge.lost { background: #fee2e2; color: #991b1b; }
+
+/* 📸 แกลเลอรีรูปภาพ */
+.detail-image-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detail-main-image {
+    width: 100%;
+    height: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.detail-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.detail-main-image img:hover {
+    transform: scale(1.02);
+}
+
+/* แถวรูปตัวอย่างขนาดเล็กด้านล่าง */
+.detail-thumbnails {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 2px;
+}
+
+.detail-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+.detail-thumbnails::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.thumbnail-item {
+    width: 75px;
+    height: 75px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    background-color: #f1f5f9;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-item:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.thumbnail-item.active {
+    border-color: #3b82f6;
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 👤 ส่วนข้อมูลผู้โพสต์ (ดีไซน์ใหม่พรีเมียมขึ้น) */
+.user-info-section {
+    margin: 10px 0;
+    padding: 14px 18px;
+    background: linear-gradient(to right, #f8fafc, #f1f5f9);
+    border-radius: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #e2e8f0;
+    transition: all 0.25s ease;
+}
+
+.user-info-section:hover {
+    background: linear-gradient(to right, #f1f5f9, #e2e8f0);
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.user-profile-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* รูปโปรไฟล์วงกลม */
+.user-avatar-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.poster-label {
+    margin: 0;
+    font-size: 0.7rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.poster-name {
+    margin: 2px 0 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.user-info-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.message-poster-btn {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.25);
+}
+
+.message-poster-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(249, 115, 22, 0.35);
+}
+
+.view-profile-link {
+    font-size: 0.85rem;
+    color: #3b82f6;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.user-info-section:hover .view-profile-link {
+    transform: translateX(2px);
+}
+
+/* ข้อความรายละเอียดข้อมูลทั่วไป */
+.detail-content p {
+    color: #334155;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.detail-content strong {
+    color: #0f172a;
+}
+
+/* แผนที่ */
+.map-section {
+    border: 1px solid #e2e8f0;
+    padding: 6px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 24px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+/* รายละเอียดเพิ่มเติม */
+.note-text {
+    line-height: 1.7;
+    color: #334155;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-top: 6px;
+}
+
+/* ข้อมูลติดต่อ */
+.contact-section {
+    margin-top: 24px;
+}
+
+.contact-section h3 {
+    margin-bottom: 12px;
+    color: #0f172a;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.contact-box {
+    padding: 16px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    color: #1d4ed8;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 1.15rem;
+    letter-spacing: 0.3px;
+    word-break: break-all;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.05);
+}
+
+.contact-box + .contact-box {
+    margin-top: 10px;
+}
+
+.contact-box a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* 💬 ความคิดเห็นใต้โพสต์ */
+.comments-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 820px;
+    padding: 32px 36px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+}
+
+.comments-card h3 {
+    margin: 0 0 18px 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comments-card h3 .icon {
+    color: #f97316;
+}
+
+.comment-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.comment-form input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: 'Prompt', sans-serif;
+}
+
+.comment-form input:focus {
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.comment-form button {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: #ffffff;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.comment-form button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(249, 115, 22, 0.3);
+}
+
+.comment-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.comment-login-hint {
+    margin: 0 0 20px 0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.comment-login-hint a {
+    color: #f97316;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment-item {
+    display: flex;
+    gap: 12px;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #edf2f7;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.comment-body {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 10px 14px;
+    flex: 1;
+}
+
+.comment-author {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.comment-author:hover {
+    color: #f97316;
+    text-decoration: underline;
+}
+
+.comment-content {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #334155;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.comment-owner-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.comment-owner-actions button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.comment-owner-actions button:hover {
+    color: #f97316;
+    text-decoration: underline;
+}
+
+.comment-edit-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.comment-edit-row input {
+    flex: 1;
+    padding: 6px 10px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    outline: none;
+    font-family: 'Prompt', sans-serif;
+}
+
+.comment-edit-row input:focus {
+    border-color: #f97316;
+}
+
+.comment-edit-row button {
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+
+.comment-edit-save {
+    color: #f97316;
+}
+
+.comment-edit-save:hover:not(:disabled) {
+    background: #fff7ed;
+}
+
+.comment-edit-cancel {
+    color: #94a3b8;
+}
+
+.comment-edit-cancel:hover:not(:disabled) {
+    background: #f1f5f9;
+}
+
+.comment-edit-row button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .comments-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 600px) {
+    .post-detail-page {
+        padding: 15px 10px;
+    }
+    .detail-card { 
+        padding: 20px; 
+        border-radius: 16px;
+        gap: 20px;
+    }
+    .detail-main-image { 
+        height: 280px; 
+    }
+    .detail-content h1 {
+        font-size: 1.7rem;
+    }
+    .thumbnail-item {
+        width: 60px;
+        height: 60px;
+    }
+}

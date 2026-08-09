@@ -1,0 +1,70 @@
+.-dropdown-menu .-propic {
+    width: 80px;               /* กำหนดขนาดให้กระชับพอดีกับกล่อง */
+    height: 80px;
+    border-radius: 50%;        /* ล็อกความเป็นวงกลมสมบูรณ์ */
+    object-fit: cover;
+    margin-bottom: 8px;        /* เว้นระยะห่างระหว่างรูปกับชื่อ */
+    border: 3px solid #eee;    /* เพิ่มกรอบตัดให้รูปดูเด่นขึ้น */
+}
+
+.-dropdown-menu {
+    display: flex;
+    flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง เพื่อให้เมนูเรียงลงมาสวยๆ */
+    gap: 10px;
+    
+    /* 🌟 ใส่เพิ่มเพื่อให้กล่องมัน "ลอย" อยู่ใต้ปุ่ม Menu */
+    position: absolute;
+    top: 60px;             /* ปรับระยะให้เยื้องลงมาใต้ปุ่ม */
+    right: 20px;              /* จัดให้ขอบขวาตรงกับปุ่ม */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    min-width: 150px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* ใส่เงาให้กล่องดูลอยมีมิติ */
+    z-index: 100;          /* ดันให้อยู่บนสุด ไม่โดนส่วนอื่นบัง */
+}
+
+.-dropdown-menu .-user-header {
+    display: flex;
+    flex-direction: column;    /* จัดให้รูปอยู่บน ชื่ออยู่ล่างตามภาพของคุณ */
+    align-items: center;       /* จัดให้อยู่กึ่งกลางแนวนอน */
+    text-align: center;
+    margin-bottom: 12px;       /* เว้นระยะห่างก่อนถึงเส้นคั่น */
+}
+
+.-dropdown-item {
+
+    text-decoration: none;  
+    color: #4A5568;            /* เปลี่ยนจากเขียวสดเป็นสีเทาเข้ม สไตล์มินิมอล */
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 12px;        /* เพิ่มพื้นที่กดและระยะเยื้องด้านข้าง */
+    border-radius: 8px;        /* ทำไฮไลท์โค้งมนเวลาเมาส์ชี้ */
+    transition: all 0.2s ease; /* ใส่แอนิเมชันตอนเปลี่ยนสีให้นุ่มนวล */
+    text-align: left;          /* จัดให้ข้อความชิดซ้ายเท่ากัน */
+    border: none;
+
+}
+
+.-dropdown-item:hover {
+    background-color: #f4fbf7; /* ไฮไลท์พื้นหลังด้วยสีเขียวพาสเทลอ่อนๆ */
+    color: #2F855A;            /* ข้อความเปลี่ยนเป็นสีเขียวโทนเข้มแบบป่าไม้ (Forest Green) ดูสบายตากว่าเดิม */
+    padding-left: 16px;        /* ลูกเล่น: ขยับข้อความไปขวาเล็กน้อยเวลาชี้ */
+}
+
+/* ตกแต่งปุ่ม Logout เป็นพิเศษ */
+.-dropdown-item.-logout:hover {
+    background-color: #fff5f5; /* เปลี่ยนเป็นไฮไลท์สีแดงอ่อน */
+    color: #e53e3e;            /* ข้อความสีแดงแจ้งเตือน */
+}
+
+.-user-header span {
+   display: block;             /* ให้แสดงเป็นบรรทัดใหม่ */
+    font-size: 1.25rem;         /* ขนาดใหญ่พอเหมาะ */
+    font-weight: 700;           /* หนาชัดเจน */
+    color: #1a202c;             /* สีดำอมเทา (ดูหรูหรากว่าสีดำสนิท) */
+    margin: 10px 0 0 0;       /* เว้นระยะห่าง */
+    background-color:transparent; /* เอาพื้นหลังสีเทาออกเพื่อให้ดูสะอาดตา */
+    letter-spacing: -0.3px;     /* บีบตัวอักษรให้ดูทันสมัย */
+}

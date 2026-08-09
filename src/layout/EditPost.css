@@ -1,0 +1,31 @@
+.edit-post-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
+}
+
+.edit-post-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.edit-post-preview-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 2px solid #e2e8f0;
+}
+
+.edit-post-status {
+  text-align: center;
+  padding: 80px 24px;
+  font-size: 1.1rem;
+  color: #64748b;
+  font-family: 'Prompt', sans-serif;
+}

@@ -1,0 +1,136 @@
+/* คุมโครงสร้างหลักของ Navbar */
+#Nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height:50px; /* จะวิ่งตามความสูง 56px ของ Grid แถวบน */
+    padding: 0 24px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* ส่วนของโลโก้แบรนด์ */
+.nav-brand .nav-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #1a202c;
+}
+
+.nav-brand .logo-icon {
+    display: inline-flex;
+    color: #f97316;
+}
+
+.nav-brand .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.nav-brand .highlight {
+    color: #3b82f6; /* สีน้ำเงิน AI ปรับแต่งได้ตามชอบ */
+}
+
+/* ส่วนเมนูกลางหน้าเว็บ */
+.nav-center {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-center .nav-link {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* เอฟเฟกต์เมื่อเอาเมาส์ไปชี้เมนู (Hover) */
+.nav-center .nav-link:hover {
+    background-color: #f1f5f9;
+    color: #1a202c;
+}
+
+/* สไตล์เมื่อเมนูกำลังถูกเลือกใช้งาน (Active) */
+.nav-center .nav-link.active {
+    background-color: #eff6ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* ส่วนฝั่งขวาและปุ่มโปรไฟล์ */
+.nav-end {
+    position: relative; /* ให้ Dropdown อิงตำแหน่งกับตัวนี้ */
+    display: flex;
+    align-items: center;
+}
+
+.chat-nav-btn {
+    position: relative;
+    background: none;
+    border: none;
+    color: #475569;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.chat-nav-btn:hover {
+    color: #f97316;
+    background-color: #f1f5f9;
+}
+
+.chat-nav-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #f97316;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.4);
+}
+
+.profile-btn {
+    background: none;
+    border: 2px solid transparent;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s;
+}
+
+.profile-btn:hover {
+    border-color: #3b82f6;
+}
+
+.profile-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+

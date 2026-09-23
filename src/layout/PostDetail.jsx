@@ -12,6 +12,7 @@ import { fetchComments, addComment, updateComment, deleteComment } from '../util
 import { isFavorited, toggleFavorite } from '../utils/favorites';
 import { notifyPostOwner } from '../utils/notifications';
 import { submitReport } from '../utils/admin';
+import { fetchAiMatches } from '../utils/matching';
 
 let DefaultIcon = L.icon({
     iconUrl: markerIcon, shadowUrl: markerShadow, iconSize: [25, 41], iconAnchor: [12, 41]
@@ -38,6 +39,9 @@ function PostDetail() {
   const [favorited, setFavorited] = useState(false);
   const [favoriteLoading, setFavoriteLoading] = useState(false);
   const [reporting, setReporting] = useState(false);
+
+  const [aiMatches, setAiMatches] = useState([]);
+  const [aiMatchesLoading, setAiMatchesLoading] = useState(false);
 
   const navigate = useNavigate();
   const currentUserId = localStorage.getItem('userId');
@@ -135,6 +139,18 @@ function PostDetail() {
 
     checkFavorite();
   }, [type, id, currentUserId]);
+
+  useEffect(() => {
+    if (type !== 'lost' && type !== 'found') {
+      setAiMatches([]);
+      return;
+    }
+    setAiMatchesLoading(true);
+    fetchAiMatches(type, id)
+      .then(setAiMatches)
+      .catch((err) => console.error('ค้นหาการจับคู่ AI ไม่สำเร็จ:', err))
+      .finally(() => setAiMatchesLoading(false));
+  }, [type, id]);
 
   const handleToggleFavorite = async () => {
     if (!currentUserId) {
@@ -383,6 +399,44 @@ function PostDetail() {
           </div>
         </div>
       </div>
+
+      {(type === 'lost' || type === 'found') && (
+        <div className="comments-card ai-match-card">
+          <h3><Icon name="sparkles" size={20} /> AI จับคู่{type === 'lost' ? 'กับประกาศพบสัตว์' : 'กับประกาศตามหาสัตว์หาย'}</h3>
+
+          {aiMatchesLoading ? (
+            <div className="state-card" style={{ boxShadow: 'none', border: 'none' }}>
+              <div className="state-spinner"></div>
+              <p>AI กำลังเทียบรูปภาพ...</p>
+            </div>
+          ) : aiMatches.length === 0 ? (
+            <div className="state-card empty-state" style={{ boxShadow: 'none', border: 'none' }}>
+              <span className="state-icon"><Icon name="sparkles" size={36} /></span>
+              <p>ยังไม่พบโพสต์ที่รูปภาพคล้ายกัน ระบบจะค้นหาให้ทุกครั้งที่มีประกาศใหม่</p>
+            </div>
+          ) : (
+            <div className="ai-match-list">
+              {aiMatches.map((m) => (
+                <div
+                  key={`${m.post_type}-${m.id}`}
+                  className="ai-match-item"
+                  onClick={() => navigate(`/post/${m.post_type}/${m.id}`)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <img src={m.image_url || 'https://placehold.co/100x100'} alt={m.name || 'match'} className="ai-match-thumb" />
+                  <div className="ai-match-body">
+                    <span className="ai-match-name">{m.name || m.breed || 'ไม่ระบุชื่อ'}</span>
+                    <span className="ai-match-note">{(m.note || '').slice(0, 60)}</span>
+                  </div>
+                  <span className={`ai-match-score ${m.similarity_percent >= 70 ? 'high' : m.similarity_percent >= 55 ? 'mid' : 'low'}`}>
+                    เหมือน {m.similarity_percent}%
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="comments-card">
         <h3><Icon name="messageCircle" size={20} /> ความคิดเห็น ({comments.length})</h3>

@@ -19,6 +19,7 @@ const TYPE_ICON = {
   like: 'heart',
   comment: 'messageCircle',
   nearby: 'mapPin',
+  match: 'sparkles',
 };
 
 const NEARBY_POST_LABEL = {
@@ -33,6 +34,10 @@ function renderNotificationText(n) {
   if (n.type === 'nearby') {
     const label = NEARBY_POST_LABEL[n.post_type] || 'ประกาศใหม่';
     return <>มี{label}ใหม่ใกล้บ้านคุณ จาก <strong>{actorName}</strong></>;
+  }
+
+  if (n.type === 'match') {
+    return <>🤖 AI พบว่าอาจมีสัตว์เลี้ยงที่ตรงกับประกาศของคุณ ลองดูรายละเอียดเลย</>;
   }
 
   return <><strong>{actorName}</strong> {TYPE_TEXT[n.type] || 'มีการแจ้งเตือนใหม่'}</>;
